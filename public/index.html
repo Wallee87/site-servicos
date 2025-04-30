@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Walle - Soluções Web para Microempresas</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.5/cdn.min.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#101942',
+                        secondary: '#80043a',
+                        accent: '#f60c49',
+                        tertiary: '#f09580',
+                        light: '#fdf2b4'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .glass-effect {
+            background: rgba(253, 242, 180, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .clip-diagonal {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+    </style>
+</head>
+<body class="bg-light/10 font-sans">
+    <!-- Navegação -->
+    <nav class="bg-primary text-white" x-data="{ open: false }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <span class="text-2xl font-bold text-accent">DSW-Data</span>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:items-center sm:space-x-8">
+                        <a href="#home" class="text-white hover:text-tertiary px-3 py-2 text-sm font-medium transition duration-300">Home</a>
+                        <a href="#servicos" class="text-white hover:text-tertiary px-3 py-2 text-sm font-medium transition duration-300">Serviços</a>
+                        <a href="#portfolio" class="text-white hover:text-tertiary px-3 py-2 text-sm font-medium transition duration-300">Portfólio</a>
+                        <a href="#sobre" class="text-white hover:text-tertiary px-3 py-2 text-sm font-medium transition duration-300">Sobre</a>
+                        <a href="#contato" class="text-white hover:text-tertiary px-3 py-2 text-sm font-medium transition duration-300">Contato</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex items-center sm:hidden">
+                    <button @click="open = !open" class="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-tertiary focus:outline-none">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu mobile -->
+        <div class="sm:hidden" x-show="open" x-transition>
+            <div class="pt-2 pb-3 space-y-1">
+                <a href="#home" class="text-white hover:text-tertiary block px-3 py-2 text-base font-medium">Home</a>
+                <a href="#servicos" class="text-white hover:text-tertiary block px-3 py-2 text-base font-medium">Serviços</a>
+                <a href="#portfolio" class="text-white hover:text-tertiary block px-3 py-2 text-base font-medium">Portfólio</a>
+                <a href="#sobre" class="text-white hover:text-tertiary block px-3 py-2 text-base font-medium">Sobre</a>
+                <a href="#contato" class="text-white hover:text-tertiary block px-3 py-2 text-base font-medium">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-gradient-to-r from-primary via-secondary to-accent text-white clip-diagonal">
+        <div class="max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 relative">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-light/10 rounded-full blur-3xl -z-10"></div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 bg-tertiary/10 rounded-full blur-3xl -z-10"></div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-left">
+                    <h1 class="text-5xl font-extrabold tracking-tight sm:text-6xl lg:text-7xl mb-8">
+                        <span class="block text-tertiary">Soluções Web</span>
+                        <span class="block">para Microempresas</span>
+                    </h1>
+                    <p class="text-xl max-w-lg mb-10 text-light/80">
+                        Transforme sua presença digital com soluções personalizadas para o crescimento do seu negócio.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#contato" class="inline-block bg-accent hover:bg-accent/90 text-white px-8 py-4 text-base font-medium rounded-lg shadow-lg shadow-accent/20 transition duration-300 transform hover:-translate-y-1">
+                            Solicite um orçamento
+                        </a>
+                        <a href="#servicos" class="inline-block bg-transparent border-2 border-white/30 hover:bg-white/10 text-white px-8 py-4 text-base font-medium rounded-lg transition duration-300 transform hover:-translate-y-1">
+                            Nossos serviços
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="glass-effect p-6 rounded-xl shadow-2xl rotate-3 transform hover:-rotate-2 transition duration-500">
+                        <img src="/img/logo.png" alt="Logo" class="w-full h-auto rounded-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-accent font-semibold text-sm uppercase tracking-wider">O que oferecemos</span>
+                <h2 class="text-4xl font-extrabold text-primary mt-2 sm:text-5xl">
+                    Nossos Serviços
+                </h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mt-6 mb-10 rounded-full"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Oferecemos soluções completas para estabelecer ou melhorar sua presença online.
+                </p>
+            </div>
+
+            <div class="grid gap-10 md:grid-cols-3">
+                <!-- Landing Page -->
+                <div class="bg-white rounded-xl p-8 shadow-xl service-card transition duration-300 border-t-4 border-accent relative z-10 hover:z-20">
+                    <div class="absolute -top-6 -right-6 w-20 h-20 bg-primary rounded-full flex items-center justify-center">
+                        <i class="fas fa-rocket text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Landing Pages</h3>
+                    <div class="w-12 h-1 bg-accent rounded-full mb-6"></div>
+                    <p class="text-gray-600 mb-6">
+                        Páginas otimizadas para conversão, ideais para campanhas específicas, lançamentos de produtos ou captura de leads.
+                    </p>
+                    <ul class="text-gray-600 space-y-3 mb-8">
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i> Design responsivo</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i> Otimizada para SEO</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i> Formulários de contato</li>
+                        <li class="flex items-center"><i class="fas fa-check text-accent mr-3"></i> Integração com redes sociais</li>
+                    </ul>
+                    <a href="#contato" class="inline-block w-full text-center bg-primary hover:bg-primary/90 text-white py-3 px-6 rounded-lg transition duration-300">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- E-commerce -->
+                <div class="bg-white rounded-xl p-8 shadow-xl service-card transition duration-300 border-t-4 border-secondary relative z-10 hover:z-20 md:translate-y-8">
+                    <div class="absolute -top-6 -right-6 w-20 h-20 bg-secondary rounded-full flex items-center justify-center">
+                        <i class="fas fa-shopping-cart text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">E-commerce</h3>
+                    <div class="w-12 h-1 bg-secondary rounded-full mb-6"></div>
+                    <p class="text-gray-600 mb-6">
+                        Lojas virtuais completas para você vender seus produtos ou serviços online com segurança e praticidade.
+                    </p>
+                    <ul class="text-gray-600 space-y-3 mb-8">
+                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-3"></i> Catálogo de produtos</li>
+                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-3"></i> Carrinho de compras</li>
+                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-3"></i> Integração com meios de pagamento</li>
+                        <li class="flex items-center"><i class="fas fa-check text-secondary mr-3"></i> Gestão de estoque</li>
+                    </ul>
+                    <a href="#contato" class="inline-block w-full text-center bg-secondary hover:bg-secondary/90 text-white py-3 px-6 rounded-lg transition duration-300">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- E-learning -->
+                <div class="bg-white rounded-xl p-8 shadow-xl service-card transition duration-300 border-t-4 border-tertiary relative z-10 hover:z-20">
+                    <div class="absolute -top-6 -right-6 w-20 h-20 bg-tertiary rounded-full flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Plataforma E-learning</h3>
+                    <div class="w-12 h-1 bg-tertiary rounded-full mb-6"></div>
+                    <p class="text-gray-600 mb-6">
+                        Sistemas de ensino online para cursos, treinamentos e capacitações com área do aluno personalizada.
+                    </p>
+                    <ul class="text-gray-600 space-y-3 mb-8">
+                        <li class="flex items-center"><i class="fas fa-check text-tertiary mr-3"></i> Área do aluno</li>
+                        <li class="flex items-center"><i class="fas fa-check text-tertiary mr-3"></i> Vídeos e materiais</li>
+                        <li class="flex items-center"><i class="fas fa-check text-tertiary mr-3"></i> Fórum de discussão</li>
+                        <li class="flex items-center"><i class="fas fa-check text-tertiary mr-3"></i> Certificados automáticos</li>
+                    </ul>
+                    <a href="#contato" class="inline-block w-full text-center bg-tertiary hover:bg-tertiary/90 text-white py-3 px-6 rounded-lg transition duration-300">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefícios -->
+    <section class="py-24 bg-primary/5 relative overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-tertiary/10 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <span class="text-secondary font-semibold text-sm uppercase tracking-wider">Nossos diferenciais</span>
+                <h2 class="text-4xl font-extrabold text-primary mt-2 sm:text-5xl">
+                    Por que escolher nossos serviços?
+                </h2>
+                <div class="w-24 h-1 bg-accent mx-auto mt-6 mb-10 rounded-full"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Oferecemos valor real para o seu negócio com soluções feitas sob medida.
+                </p>
+            </div>
+
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+                <div class="bg-white p-8 rounded-xl shadow-xl text-center hover:transform hover:scale-105 transition duration-300">
+                    <div class="mx-auto flex items-center justify-center h-20 w-20 rounded-full bg-primary/10 text-accent mb-6">
+                        <i class="fas fa-rocket text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-4">Rápida Implementação</h3>
+                    <p class="text-gray-600">
+                        Entregamos seu projeto em tempo hábil para que você comece a colher resultados rapidamente.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-xl text-center hover:transform hover:scale-105 transition duration-300">
+                    <div class="mx-auto flex items-center justify-center h-20 w-20 rounded-full bg-secondary/10 text-secondary mb-6">
+                        <i class="fas fa-mobile-alt text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-4">Design Responsivo</h3>
+                    <p class="text-gray-600">
+                        Sites adaptados para todos os dispositivos: desktop, tablet e smartphones.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-xl text-center hover:transform hover:scale-105 transition duration-300">
+                    <div class="mx-auto flex items-center justify-center h-20 w-20 rounded-full bg-accent/10 text-accent mb-6">
+                        <i class="fas fa-search text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-4">Otimizado para SEO</h3>
+                    <p class="text-gray-600">
+                        Aplicamos técnicas de SEO para melhorar o posicionamento do seu site nos buscadores.
+                    </p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-xl text-center hover:transform hover:scale-105 transition duration-300">
+                    <div class="mx-auto flex items-center justify-center h-20 w-20 rounded-full bg-tertiary/10 text-tertiary mb-6">
+                        <i class="fas fa-headset text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-4">Suporte Contínuo</h3>
+                    <p class="text-gray-600">
+                        Estamos sempre disponíveis para ajudar com atualizações e melhorias no seu site.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfólio (a ser preenchido) -->
+    <section id="portfolio" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-accent font-semibold text-sm uppercase tracking-wider">Trabalhos recentes</span>
+                <h2 class="text-4xl font-extrabold text-primary mt-2 sm:text-5xl">
+                    Nosso Portfólio
+                </h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mt-6 mb-10 rounded-full"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Confira alguns projetos que desenvolvemos para clientes satisfeitos.
+                </p>
+            </div>
+
+            <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Projetos do portfólio serão adicionados aqui -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300 group">
+                    <div class="h-64 bg-gray-200 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                            <a href="#" class="text-white font-medium hover:underline">Ver projeto completo</a>
+                        </div>
+                        <span class="absolute inset-0 flex items-center justify-center text-gray-500">Imagem do Projeto</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary">Projeto 1</h3>
+                        <p class="mt-2 text-gray-600">
+                            Descrição breve do projeto 1. Você adicionará as informações do seu portfólio aqui.
+                        </p>
+                        <div class="mt-4">
+                            <span class="inline-block bg-accent/10 text-accent px-3 py-1 text-xs font-medium rounded-full mr-2">
+                                Landing Page
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300 group">
+                    <div class="h-64 bg-gray-200 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-secondary/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                            <a href="#" class="text-white font-medium hover:underline">Ver projeto completo</a>
+                        </div>
+                        <span class="absolute inset-0 flex items-center justify-center text-gray-500">Imagem do Projeto</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary">Projeto 2</h3>
+                        <p class="mt-2 text-gray-600">
+                            Descrição breve do projeto 2. Você adicionará as informações do seu portfólio aqui.
+                        </p>
+                        <div class="mt-4">
+                            <span class="inline-block bg-secondary/10 text-secondary px-3 py-1 text-xs font-medium rounded-full mr-2">
+                                E-commerce
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300 group">
+                    <div class="h-64 bg-gray-200 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-tertiary/80 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                            <a href="#" class="text-white font-medium hover:underline">Ver projeto completo</a>
+                        </div>
+                        <span class="absolute inset-0 flex items-center justify-center text-gray-500">Imagem do Projeto</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary">Projeto 3</h3>
+                        <p class="mt-2 text-gray-600">
+                            Descrição breve do projeto 3. Você adicionará as informações do seu portfólio aqui.
+                        </p>
+                        <div class="mt-4">
+                            <span class="inline-block bg-tertiary/10 text-tertiary px-3 py-1 text-xs font-medium rounded-full mr-2">
+                                E-learning
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Sobre -->
+    <section id="sobre" class="py-24 bg-primary/5 relative overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-secondary/10 rounded-full blur-3xl"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div class="mb-12 lg:mb-0">
+                    <span class="text-tertiary font-semibold text-sm uppercase tracking-wider">Quem somos</span>
+                    <h2 class="text-4xl font-extrabold text-primary mt-2 sm:text-5xl mb-6">
+                        Sobre Nós
+                    </h2>
+                    <div class="w-24 h-1 bg-accent mb-8 rounded-full"></div>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Somos especialistas em desenvolvimento web focados em criar soluções personalizadas para microempresas que desejam estabelecer ou fortalecer sua presença digital.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Com anos de experiência no mercado, entendemos as necessidades específicas das pequenas empresas e oferecemos soluções acessíveis e de alta qualidade.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8">
+                        Nosso objetivo é transformar sua visão em uma presença online eficaz que converta visitantes em clientes e impulsione o crescimento do seu negócio.
+                    </p>
+                    <a href="#contato" class="inline-flex items-center text-accent font-medium text-lg hover:text-accent/80 transition duration-300">
+                        Entre em contato conosco <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <div class="relative">
+                    <div class="bg-white rounded-xl shadow-2xl p-3 z-20 relative">
+                        <div class="bg-gray-200 rounded-lg h-96 flex items-center justify-center">
+                            <span class="text-gray-500">Imagem/Foto da Equipe</span>
+                        </div>
+                    </div>
+                    <div class="absolute w-full h-full top-8 -right-8 border-4 border-secondary rounded-xl z-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-accent font-semibold text-sm uppercase tracking-wider">Fale conosco</span>
+                <h2 class="text-4xl font-extrabold text-primary mt-2 sm:text-5xl">
+                    Entre em Contato
+                </h2>
+                <div class="w-24 h-1 bg-secondary mx-auto mt-6 mb-10 rounded-full"></div>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Estamos prontos para ajudar com seu próximo projeto. Preencha o formulário abaixo e entraremos em contato em breve.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div>
+                    <form id="contactForm" class="space-y-6" action="/api/contact" method="POST">
+                        <div class="relative">
+                            <input type="text" id="nome" name="nome" placeholder=" " class="peer w-full border-0 border-b-2 border-gray-300 bg-transparent pt-4 pb-2 focus:border-accent focus:outline-none" required>
+                            <label for="nome" class="absolute left-0 top-4 -translate-y-6 text-sm text-gray-500 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:text-base peer-focus:-translate-y-6 peer-focus:text-sm peer-focus:text-accent transition-all">Nome</label>
+                        </div>
+                        <div class="relative">
+                            <input type="email" id="email" name="email" placeholder=" " class="peer w-full border-0 border-b-2 border-gray-300 bg-transparent pt-4 pb-2 focus:border-accent focus:outline-none" required>
+                            <label for="email" class="absolute left-0 top-4 -translate-y-6 text-sm text-gray-500 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:text-base peer-focus:-translate-y-6 peer-focus:text-sm peer-focus:text-accent transition-all">Email</label>
+                        </div>
+                        <div class="relative">
+                            <input type="tel" id="telefone" name="telefone" placeholder=" " class="peer w-full border-0 border-b-2 border-gray-300 bg-transparent pt-4 pb-2 focus:border-accent focus:outline-none">
+                            <label for="telefone" class="absolute left-0 top-4 -translate-y-6 text-sm text-gray-500 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:text-base peer-focus:-translate-y-6 peer-focus:text-sm peer-focus:text-accent transition-all">Telefone</label>
+                        </div>
+                        <div class="relative">
+                            <select id="servico" name="servico" class="peer w-full border-0 border-b-2 border-gray-300 bg-transparent pt-4 pb-2 focus:border-accent focus:outline-none" required>
+                                <option value="" disabled selected></option>
+                                <option value="landing-page">Landing Page</option>
+                                <option value="e-commerce">E-commerce</option>
+                                <option value="e-learning">Plataforma E-learning</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                            <label for="servico" class="absolute left-0 top-4 -translate-y-6 text-sm text-gray-500 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:text-base peer-focus:-translate-y-6 peer-focus:text-sm peer-focus:text-accent transition-all">Serviço de Interesse</label>
+                        </div>
+                        <div class="relative">
+                            <textarea id="mensagem" name="mensagem" rows="4" placeholder=" " class="peer w-full border-0 border-b-2 border-gray-300 bg-transparent pt-4 pb-2 focus:border-accent focus:outline-none" required></textarea>
+                            <label for="mensagem" class="absolute left-0 top-4 -translate-y-6 text-sm text-gray-500 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:text-base peer-focus:-translate-y-6 peer-focus:text-sm peer-focus:text-accent transition-all">Mensagem</label>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full bg-accent hover:bg-accent/90 text-white px-6 py-4 rounded-lg shadow-lg shadow-accent/20 transition duration-300 transform hover:-translate-y-1">
+                                Enviar Mensagem
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div>
+                    <div class="bg-primary/5 p-10 rounded-xl shadow-xl">
+                        <h3 class="text-2xl font-bold text-primary mb-8">Informações de Contato</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-12 w-12 rounded-full bg-accent/10 flex items-center justify-center text-accent">
+                                    <i class="fas fa-envelope text-xl"></i>
+                                </div>
+                                <div class="ml-6">
+                                    <p class="text-sm font-medium text-gray-500">Email</p>
+                                    <p class="text-lg font-medium text-primary mt-1">seu-email@exemplo.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-12 w-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+                                    <i class="fas fa-phone text-xl"></i>
+                                </div>
+                                <div class="ml-6">
+                                    <p class="text-sm font-medium text-gray-500">Telefone</p>
+                                    <p class="text-lg font-medium text-primary mt-1">(11) 91557-2828</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 h-12 w-12 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary">
+                                    <i class="fas fa-map-marker-alt text-xl"></i>
+                                </div>
+                                <div class="ml-6">
+                                    <p class="text-sm font-medium text-gray-500">Localização</p>
+                                    <p class="text-lg font-medium text-primary mt-1">Sua Cidade, Estado</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-12 pt-8 border-t border-gray-200">
+                            <h4 class="text-xl font-medium text-primary mb-6">Redes Sociais</h4>
+                            <div class="flex space-x-6">
+                                <a href="#" class="h-12 w-12 rounded-full bg-primary/5 hover:bg-primary/10 flex items-center justify-center text-primary transition duration-300">
+                                    <i class="fab fa-facebook-f text-xl"></i>
+                                </a>
+                                <a href="#" class="h-12 w-12 rounded-full bg-primary/5 hover:bg-primary/10 flex items-center justify-center text-primary transition duration-300">
+                                    <i class="fab fa-instagram text-xl"></i>
+                                </a>
+                                <a href="#" class="h-12 w-12 rounded-full bg-primary/5 hover:bg-primary/10 flex items-center justify-center text-primary transition duration-300">
+                                    <i class="fab fa-linkedin-in text-xl"></i>
+                                </a>
+                                <a href="#" class="h-12 w-12 rounded-full bg-primary/5 hover:bg-primary/10 flex items-center justify-center text-primary transition duration-300">
+                                    <i class="fab fa-whatsapp text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <span class="text-2xl font-bold text-white">WebSolutions</span>
+                    <p class="mt-4 text-gray-300">
+                        Soluções web para microempresas que desejam crescer no ambiente digital.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-medium">Links Rápidos</h3>
+                    <ul class="mt-4 space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-white">Home</a></li>
+                        <li><a href="#servicos" class="text-gray-300 hover:text-white">Serviços</a></li>
+                        <li><a href="#portfolio" class="text-gray-300 hover:text-white">Portfólio</a></li>
+                        <li><a href="#sobre" class="text-gray-300 hover:text-white">Sobre</a></li>
+                        <li><a href="#contato" class="text-gray-300 hover:text-white">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-medium">Newsletter</h3>
+                    <p class="mt-4 text-gray-300">
+                        Inscreva-se para receber dicas e novidades sobre presença digital.
+                    </p>
+                    <form class="mt-4 flex">
+                        <input type="email" placeholder="Seu email" class="rounded-l-md px-4 py-2 w-full focus:outline-none text-gray-900">
+                        <button type="submit" class="bg-blue-600 rounded-r-md px-4 py-2 text-white hover:bg-blue-700">
+                            Inscrever
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col items-center">
+                <p class="text-gray-300 text-sm">
+                    &copy; 2025 WebSolutions. Todos os direitos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+ <!-- Script para integração com Node.js -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                nome: document.getElementById('nome').value,
+                email: document.getElementById('email').value,
+                telefone: document.getElementById('telefone').value,
+                servico: document.getElementById('servico').value,
+                mensagem: document.getElementById('mensagem').value
+            };
+            
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok) {
+                    alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+                    this.reset();
+                } else {
+                    alert('Erro ao enviar mensagem: ' + result.message);
+                }
+            } catch (error) {
+                alert('Erro ao enviar mensagem. Por favor, tente novamente mais tarde.');
+                console.error('Erro:', error);
+            }
+        });
+    </script>	
+	
+	
+	
+	
+</body>
+</html>
+
+   
