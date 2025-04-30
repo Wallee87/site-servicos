@@ -108,7 +108,7 @@
                 </div>
                 <div class="hidden md:block">
                     <div class="glass-effect p-6 rounded-xl shadow-2xl rotate-3 transform hover:-rotate-2 transition duration-500">
-                        <img src="public/img/logo.png" alt="Hero Image Placeholder" class="w-full h-auto rounded-lg">
+                        <img src="/img/logo.png" alt="Logo" class="w-full h-auto rounded-lg">
                     </div>
                 </div>
             </div>
@@ -131,13 +131,15 @@
 
             <div class="grid gap-10 md:grid-cols-3">
                 <!-- Landing Page -->
-                <div class="bg-white rounded-xl p-8 shadow-xl service-card transition duration-300 border-t-4 border-accent relative z-10 hover:z-20">
-                    <div class="absolute -top-6 -right-6 w-20 h-20 bg-primary rounded-full flex items-center justify-center">
-                        <i class="fas fa-rocket text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-primary mb-4">Landing Pages</h3>
-                    <div class="w-12 h-1 bg-accent rounded-full mb-6"></div>
-                    <p class="text-gray-600 mb-6">
+            <div class="bg-white rounded-xl p-8 shadow-xl service-card transition duration-300 border-t-4 border-accent relative z-10 hover:z-20">
+                <div class="absolute -top-6 -right-6 w-20 h-20 bg-primary rounded-full flex items-center justify-center">
+                    <i class="fas fa-rocket text-white text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-primary mb-4">
+                    <a href="landingvendas.html" class="hover:text-accent transition duration-300">Landing Pages</a>
+                </h3>
+                <div class="w-12 h-1 bg-accent rounded-full mb-6"></div>
+                <p class="text-gray-600 mb-6">
                         Páginas otimizadas para conversão, ideais para campanhas específicas, lançamentos de produtos ou captura de leads.
                     </p>
                     <ul class="text-gray-600 space-y-3 mb-8">
@@ -520,10 +522,8 @@
             </div>
         </div>
     </footer>
-</body>
-</html>
 
-    <!-- Script para integração com Node.js -->
+ <!-- Script para integração com Node.js -->
     <script>
         document.getElementById('contactForm').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -558,4 +558,12 @@
                 console.error('Erro:', error);
             }
         });
-    </script>
+    </script>	
+	
+	
+	
+	
+</body>
+</html>
+
+   
