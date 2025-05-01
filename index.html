@@ -486,6 +486,49 @@
         </div>
     </section>
 
+      <!-- Importar o script do Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+        // Inicializar o cliente Supabase com as variáveis de ambiente do Vercel
+        // No HTML do lado do cliente, você precisa expor as variáveis diretamente no HTML
+        const supabaseUrl = "<?php echo $_ENV['SUPABASE_URL']; ?>";
+        const supabaseKey = "<?php echo $_ENV['SUPABASE_ANON_KEY']; ?>";
+
+        // Criar o cliente Supabase
+        const supabase = supabaseClient.createClient(supabaseUrl, supabaseKey);
+
+        // Manipular o envio do formulário
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Obter os valores do formulário
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const telefone = document.getElementById('telefone').value;
+            const servico = document.getElementById('servico').value;            
+            const mensagem = document.getElementById('mensagem').value;
+
+            try {
+                // Inserir dados no Supabase
+                const { data, error } = await supabase
+                    .from('contacts')
+                    .insert([{ nome, email, telefone, servico, mensagem }]);
+
+                if (error) throw error;
+
+                alert('Mensagem enviada com sucesso!');
+                document.getElementById('contactForm').reset();
+            } catch (error) {
+                console.error('Erro:', error);
+                alert('Erro ao enviar mensagem.');
+            }
+        });
+    </script>
+
+
+
+
     <!-- Footer -->
     <footer class="bg-gray-800 text-white">
         <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
