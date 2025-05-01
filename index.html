@@ -499,7 +499,7 @@
     const supabaseKey = window.env.SUPABASE_ANON_KEY;
 
         // Criar o cliente Supabase
-        const supabase = supabaseClient.createClient(supabaseUrl, supabaseKey);
+        const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
         // Manipular o envio do formulário
         document.getElementById('contactForm').addEventListener('submit', async (e) => {
