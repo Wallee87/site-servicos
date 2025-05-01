@@ -486,6 +486,49 @@
         </div>
     </section>
 
+    
+    <script>
+  const form = document.getElementById('contactform');
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const payload = {
+      nome:      form.nome.value,
+      email:     form.email.value,
+      telefone:  form.telefone.value,
+      servico:   form.servico.value,
+      mensagem:  form.mensagem.value
+    };
+
+    try {
+      const resp = await fetch('/api/contact', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(payload)
+      });
+
+      const json = await resp.json();
+
+      if (!resp.ok) throw new Error(json.error || 'Erro desconhecido');
+
+      alert('Mensagem enviada com sucesso!');
+      form.reset();
+    } catch (err) {
+      console.error('Fetch Error:', err);
+      alert('Erro ao enviar mensagem: ' + err.message);
+    }
+  });
+</script>
+
+    
+    
+    
+    
+    
+    
+    
+    
     <script src="/env.js"></script>
     
       <!-- Importar o script do Supabase -->
