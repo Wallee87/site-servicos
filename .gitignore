@@ -2,3 +2,4 @@ site-servicos/
 *.log
 .env
 .vercel
+.env*.local
