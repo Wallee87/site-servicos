@@ -486,14 +486,17 @@
         </div>
     </section>
 
+    <script src="/env.js"></script>
+    
       <!-- Importar o script do Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <script>
         // Inicializar o cliente Supabase com as variáveis de ambiente do Vercel
         // No HTML do lado do cliente, você precisa expor as variáveis diretamente no HTML
-        const supabaseUrl = "<?php echo $_ENV['SUPABASE_URL']; ?>";
-        const supabaseKey = "<?php echo $_ENV['SUPABASE_ANON_KEY']; ?>";
+    // Use as variáveis do objeto window.env
+    const supabaseUrl = window.env.SUPABASE_URL;
+    const supabaseKey = window.env.SUPABASE_ANON_KEY;
 
         // Criar o cliente Supabase
         const supabase = supabaseClient.createClient(supabaseUrl, supabaseKey);
