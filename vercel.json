@@ -1,14 +1,17 @@
 {
   "version": 2,
   "builds": [
-    { "src": "*.html",       "use": "@vercel/static" },
-    { "src": "env.js",       "use": "@vercel/static" },
-    { "src": "api/**/*.js",  "use": "@vercel/node" }
+    // 1) Functions: tudo que estiver em api/*.js
+    { "src": "api/**/*.js",     "use": "@vercel/node" },
+
+    // 2) Conteúdo estático: todo o diretório public
+    { "src": "public/**/*",     "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/landingvendas.html",     "dest": "/landingvendas.html" },
-    { "src": "/landingleadsia.html",    "dest": "/landingleadsia.html" },
-    { "src": "/landinge-commerce.html", "dest": "/landinge-commerce.html" },
-    { "src": "/(.*)",                   "dest": "/$1" }
+    // 1) Primeiro, mande /api/* para as funções
+    { "src": "/api/(.*)",       "dest": "/api/$1.js" },
+
+    // 2) Depois, todo o resto vai para public/
+    { "src": "/(.*)",           "dest": "/public/$1" }
   ]
 }
