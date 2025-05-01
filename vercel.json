@@ -1,17 +1,11 @@
 {
   "version": 2,
   "builds": [
-    // 1) Functions: tudo que estiver em api/*.js
     { "src": "api/**/*.js",     "use": "@vercel/node" },
-
-    // 2) Conteúdo estático: todo o diretório public
     { "src": "public/**/*",     "use": "@vercel/static" }
   ],
   "routes": [
-    // 1) Primeiro, mande /api/* para as funções
     { "src": "/api/(.*)",       "dest": "/api/$1.js" },
-
-    // 2) Depois, todo o resto vai para public/
     { "src": "/(.*)",           "dest": "/public/$1" }
   ]
 }
