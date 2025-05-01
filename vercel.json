@@ -13,3 +13,4 @@
     { "src": "/landinge-commerce.html", "dest": "/landinge-commerce.html" },
     { "src": "/(.*)", "dest": "/$1" }
   ]
+}
