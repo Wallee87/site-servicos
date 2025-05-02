@@ -3,3 +3,4 @@ site-servicos/
 .env
 .vercel
 .env*.local
+.env.local
