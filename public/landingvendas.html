@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProdutoX - A Solução que Você Precisa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .hero-gradient {
+            background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
+        }
+        .testimonial-bg {
+            background-color: #f9fafb;
+        }
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Navegação -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-indigo-600">ProdutoX</div>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#beneficios" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">Benefícios</a>
+                    <a href="#funcionalidades" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">Funcionalidades</a>
+                    <a href="#depoimentos" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">Depoimentos</a>
+                    <a href="#faq" class="px-3 py-2 text-sm font-medium text-gray-700 hover:text-indigo-600">FAQ</a>
+                </div>
+                <div class="flex items-center">
+                    <a href="#oferta" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">
+                        Ver Oferta
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-4">Transforme Seu Negócio com ProdutoX</h1>
+                    <p class="text-xl mb-8 opacity-90">A solução completa que vai revolucionar sua forma de trabalhar e aumentar seus resultados em até 300%.</p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#oferta" class="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-white hover:bg-gray-50 shadow-lg">
+                            Começar Agora
+                        </a>
+                        <a href="#demonstracao" class="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-800 bg-opacity-50 hover:bg-opacity-70">
+                            <i class="fas fa-play-circle mr-2"></i> Ver Demonstração
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="/api/placeholder/600/400" alt="ProdutoX em ação" class="rounded-lg shadow-xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contagem Regressiva -->
+    <section class="bg-indigo-900 text-white py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold">Oferta por Tempo Limitado</h2>
+                <p class="text-indigo-200">Desconto especial termina em:</p>
+            </div>
+            <div class="flex justify-center gap-4">
+                <div class="countdown-item p-4 text-center w-20">
+                    <div class="text-3xl font-bold" id="days">00</div>
+                    <div class="text-xs uppercase">Dias</div>
+                </div>
+                <div class="countdown-item p-4 text-center w-20">
+                    <div class="text-3xl font-bold" id="hours">00</div>
+                    <div class="text-xs uppercase">Horas</div>
+                </div>
+                <div class="countdown-item p-4 text-center w-20">
+                    <div class="text-3xl font-bold" id="minutes">00</div>
+                    <div class="text-xs uppercase">Minutos</div>
+                </div>
+                <div class="countdown-item p-4 text-center w-20">
+                    <div class="text-3xl font-bold" id="seconds">00</div>
+                    <div class="text-xs uppercase">Segundos</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefícios -->
+    <section id="beneficios" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Benefícios Exclusivos</h2>
+                <p class="mt-4 text-lg text-gray-600">Por que o ProdutoX é a escolha ideal para o seu negócio</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg p-6 shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+                    <div class="h-12 w-12 rounded-md bg-indigo-100 text-indigo-600 flex items-center justify-center mb-4">
+                        <i class="fas fa-bolt text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Mais Rapidez</h3>
+                    <p class="text-gray-600">Economize até 20 horas por semana automatizando processos manuais e repetitivos.</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+                    <div class="h-12 w-12 rounded-md bg-indigo-100 text-indigo-600 flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Mais Resultados</h3>
+                    <p class="text-gray-600">Aumente sua conversão em até 130% com nossa tecnologia de otimização avançada.</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+                    <div class="h-12 w-12 rounded-md bg-indigo-100 text-indigo-600 flex items-center justify-center mb-4">
+                        <i class="fas fa-shield-alt text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Mais Segurança</h3>
+                    <p class="text-gray-600">Proteção de dados com criptografia de ponta e backup automático em nuvem.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demonstração do Produto -->
+    <section id="demonstracao" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Veja em Ação</h2>
+                <p class="mt-4 text-lg text-gray-600">Descubra como o ProdutoX funciona na prática</p>
+            </div>
+            <div class="aspect-w-16 aspect-h-9 shadow-2xl rounded-lg overflow-hidden bg-black">
+                <img src="/api/placeholder/800/450" alt="Demonstração do Produto" class="mx-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- Funcionalidades -->
+    <section id="funcionalidades" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Funcionalidades Exclusivas</h2>
+                <p class="mt-4 text-lg text-gray-600">Recursos que fazem toda a diferença no seu dia a dia</p>
+            </div>
+
+            <div class="space-y-16">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 md:pr-8 order-2 md:order-1">
+                        <div class="bg-indigo-600 inline-block px-4 py-1 rounded-full text-white text-sm font-semibold mb-4">Recurso #1</div>
+                        <h3 class="text-2xl font-bold mb-4">Automação Inteligente</h3>
+                        <p class="text-gray-600 mb-4">Configure fluxos de trabalho personalizados que se adaptam às suas necessidades, permitindo automatizar 90% das tarefas repetitivas.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <svg class="h-6 w-6 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Programação avançada de tarefas</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-6 w-6 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Integração com mais de 200 ferramentas</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-6 w-6 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Painéis de controle customizáveis</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2 mb-8 md:mb-0 order-1 md:order-2">
+                        <img src="/api/placeholder/600/400" alt="Automação Inteligente" class="rounded-lg shadow-lg">
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-8 md:mb-0">
+                        <img src="/api/placeholder/600/400" alt="Análise de Desempenho" class="rounded-lg shadow-lg">
+                    </div>
+                    <div class="md:w-1/2 md:pl-8">
+                        <div class="bg-indigo-600 inline-block px-4 py-1 rounded-full text-white text-sm font-semibold mb-4">Recurso #2</div>
+                        <h3 class="text-2xl font-bold mb-4">Análise de Desempenho</h3>
+                        <p class="text-gray-600 mb-4">Monitore todos os indicadores importantes do seu negócio em tempo real, com relatórios detalhados e insights acionáveis.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <svg class="h-6 w-6 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Gráficos interativos em tempo real</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-6 w-6 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Previsões baseadas em IA</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-6 w-6 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Alertas personalizados</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos" class="py-16 testimonial-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">O Que Nossos Clientes Dizem</h2>
+                <p class="mt-4 text-lg text-gray-600">Pessoas reais, resultados reais</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-400 flex">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="ml-2 text-gray-600">5.0</span>
+                    </div>
+                    <p class="text-gray-600 mb-6">"O ProdutoX transformou completamente nossa operação. Conseguimos reduzir custos em 30% e aumentar a eficiência da equipe. É uma ferramenta indispensável!"</p>
+                    <div class="flex items-center">
+                        <div class="h-10 w-10 rounded-full bg-gray-300"></div>
+                        <div class="ml-3">
+                            <h4 class="font-medium">Ana Silva</h4>
+                            <p class="text-sm text-gray-500">Gerente de Operações, Empresa ABC</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-400 flex">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="ml-2 text-gray-600">5.0</span>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Experimentei várias soluções similares no mercado, mas nenhuma se compara ao ProdutoX em termos de facilidade de uso e resultados. Recomendo fortemente!"</p>
+                    <div class="flex items-center">
+                        <div class="h-10 w-10 rounded-full bg-gray-300"></div>
+                        <div class="ml-3">
+                            <h4 class="font-medium">Carlos Mendes</h4>
+                            <p class="text-sm text-gray-500">CEO, Startup XYZ</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-400 flex">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="ml-2 text-gray-600">4.5</span>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Desde que implementamos o ProdutoX, nossas vendas cresceram 75%. O suporte ao cliente é excepcional e as atualizações são constantes. Vale cada centavo!"</p>
+                    <div class="flex items-center">
+                        <div class="h-10 w-10 rounded-full bg-gray-300"></div>
+                        <div class="ml-3">
+                            <h4 class="font-medium">Mariana Costa</h4>
+                            <p class="text-sm text-gray-500">Diretora de Marketing, Empresa DEF</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparação de Planos -->
+    <section id="planos" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Escolha o Plano Ideal</h2>
+                <p class="mt-4 text-lg text-gray-600">Soluções flexíveis para empresas de todos os tamanhos</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Plano Básico -->
+                <div class="border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium text-gray-900">Básico</h3>
+                        <p class="mt-4 flex items-baseline">
+                            <span class="text-4xl font-extrabold tracking-tight text-gray-900">R$97</span>
+                            <span class="ml-1 text-xl font-semibold text-gray-500">/mês</span>
+                        </p>
+                        <p class="mt-6 text-gray-500">Ideal para profissionais autônomos e pequenas empresas.</p>
+                        <ul class="mt-6 space-y-4">
+                            <li class="flex items-start">
+                                <svg class="flex-shrink-0 h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="ml-3 text-gray-500">Acesso a recursos básicos</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="flex-shrink-0 h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="ml-3 text-gray-500">1 usuário</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="flex-shrink-0 h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="ml-3 text-gray-500">5GB de armazenamento</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="flex-shrink-0 h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="ml-3 text-gray-500">Suporte por email</span>
+                            </li>
+                        </ul>
+                        <div class="mt-8">
+                            <a href="#oferta" class="w-full inline-flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+                                Escolher Plano
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plano Pro (Destacado) -->
+                <div class="relative border-2 border-indigo-600 rounded-lg shadow-lg overflow-hidden">
+                    <div class="absolute top-0 right-0 left-0">
+                        <div class="bg-indigo-600 text-center py-1 px-4 text-white text-sm font-semibold">
+                            MAIS POPULAR
+                        </div>
+                    </div>
+                    <div class="p-6 pt-10">
+                        <h3 class="text-lg font-medium text-gray-900">Pro</h3>
+                        <p class="mt-4 flex items-baseline">
+                            <span class="text-4xl font-extrabold tracking-tight text-gray-900">R$197</span>
+                            <span class="ml-1 text-xl font-semibold text-gray-500">/mês</span>
+                        </p>
+                        <p class="mt-6 text-gray-500">Perfeito para empresas em crescimento e equipes médias.</p>
+                        <ul class="mt-6 space-y-4">
+                            <li class="flex items-start">
+                                <svg class="flex-shrink-0 h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="ml-3 text-gray-500">Todos os recursos do plano Básico</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="flex-shrink-0 h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="ml-3 text-gray-500">5 usuários</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="flex-shrink-0 h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="ml-3 text-gray-500">50GB de armazenamento</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="flex-shrink-0 h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="ml-3 text-gray-500">Suporte prioritário</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="flex-shrink-0 h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="ml-3 text-gray-500">Recursos avançados de análise</span>
+                            </li>
+                        </ul>
+                        <div class="mt-8">
+                            <a href="#oferta" class="w-full inline-flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+                                Escolher Plano
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plano Enterprise -->
+                <div class="border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-lg font-medium text-gray-900">Enterprise</h3>
+                        <p class="mt-4 flex items-baseline">
+                            <span class="text-4xl font-extrabold tracking-tight text-gray-900">R$497</span>
+                            <span class="ml-1 text-xl font-semibold text-gray-500">/mês</span>
+                        </p>
+                        <p class="mt-6 text-gray-500">Solução completa para grandes empresas e corporações.</p>
+                        <ul class="mt-6 space-y-4">
+                            <li class="flex items-start">
+                                <svg class="flex-shrink-0 h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="ml-3 text-gray-500">Todos os recursos do plano Pro</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="flex-shrink-0 h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="ml-3 text-gray-500">Usuários ilimitados</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="flex-shrink-0 h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="ml-3 text-gray-500">500GB de armazenamento</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="flex-shrink-0 h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="ml-3 text-gray-500">Suporte 24/7</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="flex-shrink-0 h-6 w-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="ml-3 text-gray-500">API e integrações personalizadas</span>
+                            </li>
+                        </ul>
+                        <div class="mt-8">
+                            <a href="#oferta" class="w-full inline-flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+                                Escolher Plano
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Oferta -->
+    <section id="oferta" class="py-16 bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-extrabold sm:text-4xl">Oferta Exclusiva</h2>
+                <p class="mt-4 text-xl text-indigo-100">Aproveite condições especiais por tempo limitado</p>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+                <div class="p-8 lg:p-12">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Plano Pro + Bônus Exclusivos</h3>
+                            <div class="flex items-baseline mb-6">
+                                <span class="text-5xl font-extrabold text-gray-900">R$197</span>
+                                <span class="text-xl text-gray-500 line-through ml-2">R$397</span>
+                                <span class="ml-2 text-green-600 bg-green-100 px-2 py-1 rounded text-sm font-medium">50% OFF</span>
+                            </div>
+                            <p class="text-gray-600 mb-6">Economize R$200 e receba acesso a todos os recursos do plano Pro mais 3 bônus exclusivos:</p>
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 h-6 w-6 rounded-full bg-green-500 flex items-center justify-center text-white">
+                                        <i class="fas fa-check text-xs"></i>
+                                    </div>
+                                    <div class="ml-3">
+                                        <h4 class="font-medium text-gray-900">Bônus #1: Treinamento VIP</h4>
+                                        <p class="text-gray-600">Acesso ao treinamento completo de implementação (Valor: R$297)</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 h-6 w-6 rounded-full bg-green-500 flex items-center justify-center text-white">
+                                        <i class="fas fa-check text-xs"></i>
+                                    </div>
+                                    <div class="ml-3">
+                                        <h4 class="font-medium text-gray-900">Bônus #2: Consultoria Estratégica</h4>
+                                        <p class="text-gray-600">Sessão de 60 minutos com nossos especialistas (Valor: R$497)</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 h-6 w-6 rounded-full bg-green-500 flex items-center justify-center text-white">
+                                        <i class="fas fa-check text-xs"></i>
+                                    </div>
+                                    <div class="ml-3">
+                                        <h4 class="font-medium text-gray-900">Bônus #3: Templates Premium</h4>
+                                        <p class="text-gray-600">Pack com 50 templates exclusivos (Valor: R$197)</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="text-gray-600 mb-6">
+                                <p class="font-bold">Valor total: R$1.388</p>
+                                <p class="font-bold text-green-600">Investimento hoje: R$197</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="bg-gray-50 p-6 rounded-lg mb-6">
+                                <h4 class="font-bold text-lg text-gray-900 mb-4">Preencha seus dados</h4>
+                                <form class="space-y-4">
+                                    <div>
+                                        <label for="name" class="block text-sm font-medium text-gray-700">Nome Completo</label>
+                                        <input type="text" id="name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                                    </div>
+                                    <div>
+                                        <label for="email" class="block text-sm font-medium text-gray-700">E-mail</label>
+                                        <input type="email" id="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                                    </div>
+                                    <div>
+                                        <label for="phone" class="block text-sm font-medium text-gray-700">Telefone</label>
+                                        <input type="tel" id="phone" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                                    </div>
+                                    <div>
+                                        <button type="submit" class="w-full inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 shadow-lg">
+                                            QUERO GARANTIR MEU ACESSO
+                                            <svg class="ml-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="flex items-center justify-center space-x-4">
+                                <img src="/api/placeholder/60/30" alt="Pagamento Seguro" class="h-8">
+                                <img src="/api/placeholder/60/30" alt="Satisfação Garantida" class="h-8">
+                                <img src="/api/placeholder/60/30" alt="Suporte Premium" class="h-8">
+                            </div>
+                            <p class="text-center text-gray-500 text-sm mt-4">Garantia de 30 dias. Cancelamento a qualquer momento.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Perguntas Frequentes</h2>
+                <p class="mt-4 text-lg text-gray-600">Tire suas dúvidas sobre o ProdutoX</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto divide-y divide-gray-200">
+                <div class="py-6">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-medium text-gray-900">Como funciona o processo de implementação?</h3>
+                        <button class="text-indigo-600 focus:outline-none">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mt-2">
+                        <p class="text-gray-600">Após a compra, você receberá acesso imediato à plataforma. Nossa equipe de suporte entrará em contato em até 24 horas para agendar uma sessão de onboarding, onde ajudaremos na configuração inicial e responderemos todas as suas dúvidas.</p>
+                    </div>
+                </div>
+
+                <div class="py-6">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-medium text-gray-900">Preciso ter conhecimentos técnicos para usar o ProdutoX?</h3>
+                        <button class="text-indigo-600 focus:outline-none">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mt-2">
+                        <p class="text-gray-600">Não! O ProdutoX foi desenvolvido com foco na facilidade de uso. Nossa interface é intuitiva e oferecemos treinamentos e documentação detalhada para que qualquer pessoa, mesmo sem conhecimentos técnicos, possa aproveitar ao máximo todos os recursos.</p>
+                    </div>
+                </div>
+
+                <div class="py-6">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-medium text-gray-900">É possível cancelar a assinatura?</h3>
+                        <button class="text-indigo-600 focus:outline-none">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mt-2">
+                        <p class="text-gray-600">Sim, você pode cancelar sua assinatura a qualquer momento. Se não estiver satisfeito nos primeiros 30 dias, devolvemos 100% do seu investimento, sem perguntas.</p>
+                    </div>
+                </div>
+
+                <div class="py-6">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-medium text-gray-900">O ProdutoX é compatível com os sistemas que já uso?</h3>
+                        <button class="text-indigo-600 focus:outline-none">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mt-2">
+                        <p class="text-gray-600">Sim! O ProdutoX oferece integração com mais de 200 ferramentas e plataformas populares, incluindo CRMs, sistemas de e-mail marketing, ERPs e ferramentas de produtividade. Se você usa algum sistema específico, entre em contato conosco para verificarmos a compatibilidade.</p>
+                    </div>
+                </div>
+
+                <div class="py-6">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-medium text-gray-900">Quanto tempo leva para ver resultados?</h3>
+                        <button class="text-indigo-600 focus:outline-none">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mt-2">
+                        <p class="text-gray-600">A maioria dos nossos clientes começa a ver resultados tangíveis nas primeiras 2 semanas de uso. No entanto, o impacto completo geralmente é percebido após 30-60 dias, quando todos os processos estão completamente otimizados e a equipe está familiarizada com a plataforma.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Final -->
+    <section class="py-16 bg-indigo-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-extrabold text-white sm:text-4xl">Pronto para transformar seu negócio?</h2>
+            <p class="mt-4 text-xl text-indigo-100 max-w-2xl mx-auto">Junte-se a milhares de empresas que já aumentaram sua eficiência e resultados com o ProdutoX.</p>
+            <div class="mt-8 flex justify-center">
+                <a href="#oferta" class="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-white hover:bg-gray-50 shadow-lg">
+                    COMEÇAR AGORA
+                    <svg class="ml-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="text-2xl font-bold text-white mb-4">ProdutoX</div>
+                    <p class="text-gray-400 mb-4">A solução completa para transformar seu negócio e aumentar seus resultados.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Produto</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Recursos</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Planos</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Preços</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Integrations</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Suporte</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Central de Ajuda</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Documentação</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Tutoriais</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Status</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contato</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-gray-400 mt-1 mr-2"></i>
+                            <span class="text-gray-400">contato@produtox.com.br</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone text-gray-400 mt-1 mr-2"></i>
+                            <span class="text-gray-400">(11) 3456-7890</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-gray-400 mt-1 mr-2"></i>
+                            <span class="text-gray-400">Av. Paulista, 1000 - São Paulo, SP</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400">&copy; 2025 ProdutoX. Todos os direitos reservados.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Termos de Uso</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Política de Privacidade</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script para contagem regressiva -->
+    <script>
+        // Definir a data final (48 horas a partir de agora)
+        const endDate = new Date();
+        endDate.setHours(endDate.getHours() + 48);
+
+        // Atualizar a contagem regressiva a cada segundo
+        const countdown = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = endDate - now;
+
+            // Cálculo de tempo
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Exibir resultado
+            document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+
+            // Se a contagem regressiva terminar
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
+            }
+        }, 1000);
+
+        // Script para expandir/recolher FAQs
+        document.querySelectorAll('#faq button').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.parentElement.nextElementSibling;
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                const icon = button.querySelector('svg');
+                icon.style.transform = content.style.display === 'block' ? 'rotate(180deg)' : 'rotate(0)';
+            });
+        });
+    </script>
+</body>
+</html>

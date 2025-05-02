@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA Connect | Automatize sua captação de leads com inteligência artificial</title>
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #f97316;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            padding: 20px 0;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #ea580c;
+        }
+        
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0MCIgaGVpZ2h0PSI3NjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxwYXRoIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjA1IiBkPSJNMCAwaDQ4MHY2NDBIMHoiLz4KICAgIDxwYXRoIGQ9Ik0wIDY0MEw0ODAgMzIwVjY0MEgweiIgZmlsbD0iI2ZmZiIgZmlsbC1vcGFjaXR5PSIuMDUiLz4KICAgIDxwYXRoIGQ9Ik00ODAgMEw5NjAgMzIwVjBINDgweiIgZmlsbD0iI2ZmZiIgZmlsbC1vcGFjaXR5PSIuMDUiLz4KICAgIDxwYXRoIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjA1IiBkPSJNOTYwIDBoNDgwdjY0MEg5NjB6Ii8+CiAgICA8cGF0aCBkPSJNOTYwIDY0MEwxNDQwIDMyMFY2NDBIOTZ5eiIgZmlsbD0iI2ZmZiIgZmlsbC1vcGFjaXR5PSIuMDUiLz4KICA8L2c+Cjwvc3ZnPg==');
+            background-size: cover;
+            opacity: 0.1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+        }
+        
+        .hero-text {
+            flex: 1;
+        }
+        
+        .hero-title {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            font-weight: 800;
+        }
+        
+        .hero-subtitle {
+            font-size: 20px;
+            margin-bottom: 32px;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+        
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .features {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-card {
+            background-color: var(--light);
+            border-radius: 12px;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .feature-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .feature-desc {
+            color: var(--gray);
+        }
+        
+        .stats {
+            padding: 80px 0;
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .testimonials {
+            padding: 100px 0;
+            background-color: var(--light);
+        }
+        
+        .testimonials-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+        
+        .testimonial-content {
+            font-size: 18px;
+            margin-bottom: 24px;
+            line-height: 1.7;
+            color: var(--dark);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .author-info p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f97316, #f43f5e);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .cta-subtitle {
+            font-size: 18px;
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+        
+        .chatbot-container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .chatbot-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .chatbot-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--primary);
+        }
+        
+        .chatbot-title h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .chatbot-title p {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        
+        .chat-messages {
+            padding: 20px;
+            height: 300px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .message {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 14px;
+        }
+        
+        .bot-message {
+            background-color: var(--gray-light);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+        
+        .user-message {
+            background-color: var(--primary);
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+        
+        .chat-input {
+            display: flex;
+            padding: 16px;
+            border-top: 1px solid var(--gray-light);
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid var(--gray-light);
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        .chat-input input:focus {
+            border-color: var(--primary);
+        }
+        
+        .send-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            width: 40px;
+            margin-left: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        
+        .send-btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 16px;
+        }
+        
+        .footer-logo span {
+            color: var(--secondary);
+        }
+        
+        .footer-desc {
+            color: var(--gray-light);
+            margin-bottom: 24px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 6px;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+        }
+        
+        .footer-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--gray-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray-light);
+            font-size: 14px;
+        }
+        
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+            }
+            
+            .hero-text {
+                text-align: center;
+            }
+            
+            .hero-btns {
+                justify-content: center;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+        
+        /* Animações */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">IA<span>Connect</span></a>
+            <nav class="nav-links">
+                <a href="#features">Recursos</a>
+                <a href="#testimonials">Depoimentos</a>
+                <a href="#pricing">Preços</a>
+                <a href="#contact">Contato</a>
+            </nav>
+            <a href="#demo" class="btn btn-outline">Demonstração gratuita</a>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text animate">
+                <h1 class="hero-title">Automatize a captação de leads com IA conversacional</h1>
+                <p class="hero-subtitle">Aumente suas conversões em até 40% com nossa plataforma de marketing conversacional alimentada por IA. Substitua seus formulários estáticos por chatbots inteligentes que se adaptam em tempo real.</p>
+                <div class="hero-btns">
+                    <a href="#demo" class="btn btn-secondary">Experimente grátis</a>
+                    <a href="#features" class="btn btn-outline">Saiba mais</a>
+                </div>
+            </div>
+            <div class="hero-image animate delay-1">
+                <img src="/api/placeholder/500/350" alt="IA Connect Platform Dashboard">
+            </div>
+        </div>
+    </section>
+    
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header animate">
+                <h2 class="section-title">Solução completa para captação de leads</h2>
+                <p class="section-subtitle">Nossa plataforma combina o melhor da inteligência artificial com marketing conversacional para revolucionar sua estratégia digital.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card animate delay-1">
+                    <div class="feature-icon">💬</div>
+                    <h3 class="feature-title">Chatbot inteligente</h3>
+                    <p class="feature-desc">Substitua formulários estáticos por conversas naturais e interativas que engajam visitantes e aumentam conversões.</p>
+                </div>
+                
+                <div class="feature-card animate delay-1">
+                    <div class="feature-icon">🧠</div>
+                    <h3 class="feature-title">Personalização por IA</h3>
+                    <p class="feature-desc">Converse com cada visitante de forma única. Nossa IA adapta o diálogo com base no comportamento e interesses demonstrados.</p>
+                </div>
+                
+                <div class="feature-card animate delay-1">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Análise avançada</h3>
+                    <p class="feature-desc">Visualize métricas detalhadas sobre o desempenho das conversas e descubra insights valiosos para otimizar suas estratégias.</p>
+                </div>
+                
+                <div class="feature-card animate delay-2">
+                    <div class="feature-icon">🔄</div>
+                    <h3 class="feature-title">Integração simples</h3>
+                    <p class="feature-desc">Conecte facilmente com seu CRM, plataformas de email marketing e outras ferramentas que você já utiliza.</p>
+                </div>
+                
+                <div class="feature-card animate delay-2">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">Responsivo em qualquer tela</h3>
+                    <p class="feature-desc">Ofereça a mesma experiência perfeita em todos os dispositivos, do desktop ao mobile.</p>
+                </div>
+                
+                <div class="feature-card animate delay-2">
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title">Implementação rápida</h3>
+                    <p class="feature-desc">Configure e implemente em minutos com nossa interface intuitiva. Sem necessidade de conhecimentos técnicos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item animate">
+                    <div class="stat-number">+40%</div>
+                    <div class="stat-label">Aumento médio na taxa de conversão</div>
+                </div>
+                
+                <div class="stat-item animate delay-1">
+                    <div class="stat-number">+65%</div>
+                    <div class="stat-label">Mais informações coletadas por lead</div>
+                </div>
+                
+                <div class="stat-item animate delay-1">
+                    <div class="stat-number">-30%</div>
+                    <div class="stat-label">Redução no custo por lead</div>
+                </div>
+                
+                <div class="stat-item animate delay-2">
+                    <div class="stat-number">+500</div>
+                    <div class="stat-label">Empresas confiando em nossa plataforma</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header animate">
+                <h2 class="section-title">O que nossos clientes dizem</h2>
+                <p class="section-subtitle">Veja como o IAConnect transformou os resultados de empresas como a sua</p>
+            </div>
+            
+            <div class="testimonials-container">
+                <div class="testimonial-card animate delay-1">
+                    <p class="testimonial-content">"Substituímos nossos formulários tradicionais pelo chatbot do IAConnect e vimos um aumento de 43% nas conversões em apenas 2 semanas. O mais impressionante é a qualidade dos leads - muito mais qualificados e com informações mais detalhadas."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="/api/placeholder/50/50" alt="Ana Silva">
+                        </div>
+                        <div class="author-info">
+                            <h4>Ana Silva</h4>
+                            <p>CMO, TechSolutions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card animate delay-2">
+                    <p class="testimonial-content">"A implementação foi incrivelmente rápida e o suporte excepcional. O chatbot com IA entende exatamente o que nossos visitantes precisam e adapta a conversa de forma tão natural que muitos pensam estar falando com um humano."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="/api/placeholder/50/50" alt="Carlos Mendes">
+                        </div>
+                        <div class="author-info">
+                            <h4>Carlos Mendes</h4>
+                            <p>Diretor de Marketing, E-Shop Brasil</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta" id="demo">
+        <div class="container">
+            <h2 class="cta-title animate">Experimente o futuro da captação de leads</h2>
+            <p class="cta-subtitle animate delay-1">Converse com nosso assistente virtual e descubra como podemos ajudar sua empresa a aumentar conversões e captar leads mais qualificados.</p>
+            
+            <div class="chatbot-container animate delay-2">
+                <div class="chatbot-header">
+                    <div class="chatbot-avatar">🤖</div>
+                    <div class="chatbot-title">
+                        <h3>Assistente IAConnect</h3>
+                        <p>Online agora</p>
+                    </div>
+                </div>
+                
+                <div class="chat-messages">
+                    <div class="message bot-message">
+                        Olá! Sou o assistente virtual da IAConnect. Como posso ajudar sua empresa a melhorar a captação de leads hoje?
+                    </div>
+                    
+                    <div class="message user-message">
+                        Quero saber mais sobre o IAConnect
+                    </div>
+                    
+                    <div class="message bot-message">
+                        Claro! O IAConnect é uma plataforma de marketing conversacional que substitui formulários estáticos por chatbots inteligentes, aumentando suas taxas de conversão em até 40%. O que você gostaria de saber especificamente?
+                    </div>
+                    
+                    <div class="message user-message">
+                        Qual o plano inicial?
+                    </div>
+                    
+                    <div class="message bot-message">
+                        Nosso plano inicial começa em R$197/mês com acesso a todos os recursos essenciais. Para experimentar gratuitamente por 14 dias, preciso apenas de algumas informações básicas. Como se chama e qual seu email profissional?
+                    </div>
+                </div>
+                
+                <div class="chat-input">
+                    <input type="text" placeholder="Digite seu nome e email para começar...">
+                    <button class="send-btn">➤</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">IA<span>Connect</span></div>
+                    <p class="footer-desc">Transformando a captação de leads através de inteligência artificial e marketing conversacional.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">f</a>
+                        <a href="#" class="social-link">in</a>
+                        <a href="#" class="social-link">t</a>
+                        <a href="#" class="social-link">ig</a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Empresa</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Sobre nós</a></li>
+                        <li><a href="#">Carreiras</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Imprensa</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Recursos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Documentação</a></li>
+                        <li><a href="#">Tutoriais</a></li>
+                        <li><a href="#">API</a></li>
+                        <li><a href="#">Integrações</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3 class="footer-title">Suporte</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2024 IAConnect. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+    
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header animate">
+                <h2 class="section-title">Planos que se adaptam ao seu negócio</h2>
+                <p class="section-subtitle">Escolha o plano ideal para sua empresa e comece a transformar visitantes em leads qualificados</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card animate delay-1">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Básico</h3>
+                        <div class="pricing-price">
+                            <span class="price">R$197</span>
+                            <span class="period">/mês</span>
+                        </div>
+                        <p class="pricing-desc">Ideal para pequenas empresas começando com marketing conversacional</p>
+                    </div>
+                    
+                    <ul class="pricing-features">
+                        <li>1 chatbot inteligente</li>
+                        <li>Até 1.000 conversas/mês</li>
+                        <li>Personalização básica</li>
+                        <li>Relatórios essenciais</li>
+                        <li>Integrações com 3 plataformas</li>
+                        <li>Suporte por email</li>
+                    </ul>
+                    
+                    <a href="#demo" class="btn pricing-btn">Começar trial gratuito</a>
+                </div>
+                
+                <div class="pricing-card popular animate delay-1">
+                    <div class="popular-badge">Mais popular</div>
+                    
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Profissional</h3>
+                        <div class="pricing-price">
+                            <span class="price">R$397</span>
+                            <span class="period">/mês</span>
+                        </div>
+                        <p class="pricing-desc">Perfeito para empresas em crescimento que buscam resultados consistentes</p>
+                    </div>
+                    
+                    <ul class="pricing-features">
+                        <li>5 chatbots inteligentes</li>
+                        <li>Até 5.000 conversas/mês</li>
+                        <li>Personalização avançada</li>
+                        <li>Análise completa de conversões</li>
+                        <li>Integrações ilimitadas</li>
+                        <li>Suporte prioritário</li>
+                        <li>Treinamento personalizado</li>
+                    </ul>
+                    
+                    <a href="#demo" class="btn pricing-btn">Começar trial gratuito</a>
+                </div>
+                
+                <div class="pricing-card animate delay-2">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title">Empresarial</h3>
+                        <div class="pricing-price">
+                            <span class="price">R$897</span>
+                            <span class="period">/mês</span>
+                        </div>
+                        <p class="pricing-desc">Solução completa para grandes empresas com necessidades avançadas</p>
+                    </div>
+                    
+                    <ul class="pricing-features">
+                        <li>Chatbots ilimitados</li>
+                        <li>Conversas ilimitadas</li>
+                        <li>IA personalizada para seu negócio</li>
+                        <li>Análise avançada com BI</li>
+                        <li>API completa</li>
+                        <li>Gerente de sucesso dedicado</li>
+                        <li>SLA garantido</li>
+                        <li>Recursos exclusivos</li>
+                    </ul>
+                    
+                    <a href="#demo" class="btn pricing-btn">Falar com consultor</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header animate">
+                <h2 class="section-title">Entre em contato</h2>
+                <p class="section-subtitle">Estamos prontos para ajudar sua empresa a alcançar resultados extraordinários</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info animate delay-1">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">
+                            <h3>Endereço</h3>
+                            <p>Av. Paulista, 1000 - Bela Vista<br>São Paulo - SP, 01310-100</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-text">
+                            <h3>Telefone</h3>
+                            <p>+55 (11) 3000-5000</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-text">
+                            <h3>Email</h3>
+                            <p>contato@iaconnect.com.br</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-social">
+                        <h3>Siga-nos</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link">f</a>
+                            <a href="#" class="social-link">in</a>
+                            <a href="#" class="social-link">t</a>
+                            <a href="#" class="social-link">ig</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form animate delay-2">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nome completo</label>
+                            <input type="text" id="name" placeholder="Seu nome">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email profissional</label>
+                            <input type="email" id="email" placeholder="seu@empresa.com.br">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Empresa</label>
+                            <input type="text" id="company" placeholder="Nome da sua empresa">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Telefone</label>
+                            <input type="tel" id="phone" placeholder="(XX) XXXXX-XXXX">
+                        </div>
+                        
+                        <div class="form-group full">
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" rows="5" placeholder="Como podemos ajudar?"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-secondary form-submit">Enviar mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        /* Estilos para seção de Preços */
+        .pricing {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .pricing-card {
+            background-color: var(--light);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pricing-card.popular {
+            background-color: white;
+            border: 2px solid var(--primary);
+            transform: scale(1.05);
+        }
+        
+        .pricing-card.popular:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background-color: var(--primary);
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 30px;
+        }
+        
+        .pricing-header {
+            padding: 30px;
+            text-align: center;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .pricing-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .pricing-price {
+            margin-bottom: 16px;
+        }
+        
+        .price {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .period {
+            font-size: 16px;
+            color: var(--gray);
+        }
+        
+        .pricing-desc {
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        .pricing-features {
+            list-style-type: none;
+            padding: 30px;
+        }
+        
+        .pricing-features li {
+            margin-bottom: 12px;
+            padding-left: 28px;
+            position: relative;
+        }
+        
+        .pricing-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        .pricing-btn {
+            display: block;
+            margin: 0 30px 30px;
+        }
+        
+        /* Estilos para seção de Contato */
+        .contact {
+            padding: 100px 0;
+            background-color: var(--light);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 30px;
+        }
+        
+        .contact-icon {
+            font-size: 24px;
+            margin-right: 20px;
+            color: var(--primary);
+        }
+        
+        .contact-text h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        
+        .contact-text p {
+            color: var(--gray);
+        }
+        
+        .contact-social h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .contact-form {
+            background-color: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--gray-light);
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+        }
+        
+        .form-submit {
+            width: 100%;
+        }
+        
+        @media (max-width: 992px) {
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+            
+            .pricing-card.popular:hover {
+                transform: translateY(-10px);
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+    </style>
+    
+    <script>
+        // Script para animar os elementos quando eles entram na viewport
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.animate');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animateElements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                observer.observe(el);
+            });
+            
+            // Funcionalidade básica para o chatbot
+            const chatInput = document.querySelector('.chat-input input');
+            const sendBtn = document.querySelector('.send-btn');
+            const chatMessages = document.querySelector('.chat-messages');
+            
+            function addMessage(message, isUser = false) {
+                const messageEl = document.createElement('div');
+                messageEl.classList.add('message');
+                messageEl.classList.add(isUser ? 'user-message' : 'bot-message');
+                messageEl.textContent = message;
+                chatMessages.appendChild(messageEl);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+            
+            function handleSend() {
+                const message = chatInput.value.trim();
+                if (message) {
+                    addMessage(message, true);
+                    chatInput.value = '';
+                    
+                    // Simular resposta do bot após um pequeno delay
+                    setTimeout(() => {
+                        addMessage('Obrigado por seu interesse! Um de nossos consultores entrará em contato em breve para configurar sua demonstração gratuita.');
+                    }, 1000);
+                }
+            }
+            
+            sendBtn.addEventListener('click', handleSend);
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    handleSend();
+                }
+            });
+        });
+    </script>
