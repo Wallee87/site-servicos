@@ -5,7 +5,7 @@ Este documento explica como configurar um servidor Node.js para receber e proces
 ## Estrutura do Projeto
 
 ```
-portfolio-site/
+site-servicos/
 ├── public/           # Arquivos estáticos (HTML, CSS, JS, imagens)
 │   ├── index.html    # Seu arquivo HTML principal
 │   ├── css/          # Arquivos CSS
